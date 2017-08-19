@@ -19,7 +19,8 @@ public class EntryController
 	private IEntryUI ui;
 	
 	private ICarpark carpark;
-	private IAdhocTicket  adhocTicket = null;
+	// private IAdhocTicket  adhocTicket = null;
+                       private IAdhocTicket adhocTicket;
 	private long entryTime;
 	private String seasonTicketId = null;
 	
@@ -29,6 +30,7 @@ public class EntryController
 			ICarSensor os, 
 			ICarSensor is,
 			IEntryUI ui) {
+        ui.registerController(this);
 		//TODO Implement constructor
 	}
 
