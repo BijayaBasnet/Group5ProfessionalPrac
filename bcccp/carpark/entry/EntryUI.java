@@ -224,5 +224,5 @@ public class EntryUI extends JFrame implements IEntryUI {
         return ticketPrinterTextArea.getText().length() != 0;
     }
     
-    //checking master to branch
+   
 }
