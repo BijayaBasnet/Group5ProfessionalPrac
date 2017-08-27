@@ -48,7 +48,8 @@ IEntryController {
     
     @Override
     public void buttonPushed() {
-        // TODO Auto-generated method stub
+        ui.printTicket(carpark.getName(), adhocTicket.getTicketNo(), entryTime, adhocTicket.getBarcode());
+        ui.display("Ticket Issued!");
         
     }
     
