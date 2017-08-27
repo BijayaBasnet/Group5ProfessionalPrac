@@ -65,7 +65,9 @@ IEntryController {
     
     @Override
     public void ticketTaken() {
-        // TODO Auto-generated method stub
+        ui.display("");
+        carpark.recordAdhocTicketEntry();
+        entryGate.raise();
         
     }
     
