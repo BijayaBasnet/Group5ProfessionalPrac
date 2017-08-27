@@ -75,7 +75,7 @@ IEntryController {
     
     @Override
     public void notifyCarparkEvent() {
-        // TODO Auto-generated method stub
+      entryGate.lower();
         
     }
     
