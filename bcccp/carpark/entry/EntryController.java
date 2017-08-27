@@ -29,7 +29,19 @@ IEntryController {
                            ICarSensor os,
                            ICarSensor is,
                            IEntryUI ui) {
-        //TODO Implement constructor
+        this.ui = ui;
+        this.entryGate = entryGate;
+        this.insideSensor = is;
+        this.outsideSensor = os;
+        
+        this.outsideSensor.registerResponder(this);
+        this.insideSensor.registerResponder(this);
+        
+        ui.registerController(this);
+        this.carpark = carpark;
+        
+        this.adhocTicket = carpark.issueAdhocTicket();
+        entryTime = adhocTicket.getEntryDateTime();
     }
     
     
