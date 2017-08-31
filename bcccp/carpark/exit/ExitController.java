@@ -42,14 +42,14 @@ public class ExitController
 
 	@Override
 	public void ticketInserted(String ticketStr) {
-		if(insideSensor.carIsDetected()) {
-			if(ticketStr.startsWith("A")) {
+		if(insideSensor_.carIsDetected()) {
+			if(ticketStr_.startsWith("A")) {
                     
             } else {
-                if(carpark.isSeasonTicketInUse(ticketStr)) {
-                    ui.display("Take Ticket");
+                if(carpark_.isSeasonTicketInUse(ticketStr)) {
+                    ui_.display("Take Ticket");
                 } else {
-                    ui.display("Invalid Ticket");
+                    ui_.display("Invalid Ticket");
                 }
             }
                 
