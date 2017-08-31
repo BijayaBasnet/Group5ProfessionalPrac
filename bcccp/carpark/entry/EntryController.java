@@ -8,89 +8,70 @@ import bcccp.carpark.ICarparkObserver;
 import bcccp.carpark.IGate;
 import bcccp.tickets.adhoc.IAdhocTicket;
 
-public class EntryController 
-		implements ICarSensorResponder,
-				   ICarparkObserver,
-		           IEntryController {
-	
-	private IGate entryGate;
-	private ICarSensor outsideSensor; 
-	private ICarSensor insideSensor;
-	private IEntryUI ui;
-	
-	private ICarpark carpark;
-	private IAdhocTicket  adhocTicket = null;
-                       
-	private long entryTime;
-	private String seasonTicketId = null;
-	
-	
-
-	public EntryController(Carpark carpark, IGate entryGate, 
-			ICarSensor os, 
-			ICarSensor is,
-			IEntryUI ui) {
+public class EntryController
+implements ICarSensorResponder,
+ICarparkObserver,
+IEntryController {
+    
+    private IGate entryGate;
+    private ICarSensor outsideSensor;
+    private ICarSensor insideSensor;
+    private IEntryUI ui;
+    
+    private ICarpark carpark;
+    private IAdhocTicket  adhocTicket = null;
+    private long entryTime;
+    private String seasonTicketId = null;
+    
+    
+    
+    public EntryController(Carpark carpark, IGate entryGate,
+                           ICarSensor os,
+                           ICarSensor is,
+                           IEntryUI ui) {
+        //TODO Implement constructor
+    }
+    
+    
+    
+    @Override
+    public void buttonPushed() {
+        // TODO Auto-generated method stub
         
-        this.ui = ui;
-        this.entryGate = entryGate;
-        this.insideSensor = is;
-        this.outsideSensor = os;
+    }
+    
+    
+    
+    @Override
+    public void ticketInserted(String barcode) {
+        // TODO Auto-generated method stub
         
-        this.outsideSensor.registerResponder(this);
-        this.insideSensor.registerResponder(this);
+    }
+    
+    
+    
+    @Override
+    public void ticketTaken() {
+        // TODO Auto-generated method stub
         
-        ui.registerController(this);
-        this.carpark = carpark;
+    }
+    
+    
+    
+    @Override
+    public void notifyCarparkEvent() {
+        // TODO Auto-generated method stub
         
-        this.adhocTicket = carpark.issueAdhocTicket();
-        entryTime = adhocTicket.getEntryDateTime();
+    }
+    
+    
+    
+    @Override
+    public void carEventDetected(String detectorId, boolean detected) {
+        // TODO Auto-generated method stub
         
-        
-	}
-
-
-
-	@Override
-	public void buttonPushed() {
-        ui.printTicket(carpark.getName(), adhocTicket.getTicketNo(), entryTime, adhocTicket.getBarcode());
-        ui.display("Ticket Issued!");
-		
-	}
-
-
-
-	@Override
-	public void ticketInserted(String barcode) {
-		
-		
-	}
-
-
-
-	@Override
-	public void ticketTaken() {
-        ui.display("");
-        carpark.recordAdhocTicketEntry();
-        entryGate.raise();
-		
-	}
-
-
-
-	@Override
-	public void notifyCarparkEvent() {
-		entryGate.lower();
-		
-	}
-
-
-
-	@Override
-	public void carEventDetected(String detectorId, boolean detected) {
-		ui.display("");
-		
-	}
-
-	
-	
+    }
+    
+    
+    
 }
