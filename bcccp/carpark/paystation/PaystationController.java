@@ -25,7 +25,14 @@ public class PaystationController
 
 	@Override
 	public void ticketInserted(String barcode) {
-		// TODO Auto-generated method stub
+		      adhocTicket= carpark.getAdhocTicket(barcode);
+        if( adhocTicket != null) {
+            if(barcode.equalsIgnoreCase(adhocTicket.getBarcode())) {
+                ui.display("Pay " + carpark.calculateAddHocTicketCharge(adhocTicket.getEntryDateTime()));
+            }
+        } else {
+            ui.display("Ticket is Invalid!");
+        }
 		
 	}
 
