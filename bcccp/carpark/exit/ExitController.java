@@ -11,15 +11,15 @@ public class ExitController
 		implements ICarSensorResponder,
 		           IExitController {
 	
-	private IGate exitGate;
-	private ICarSensor insideSensor;
-	private ICarSensor outsideSensor; 
-	private IExitUI ui;
+	private IGate exitGate_;
+	private ICarSensor insideSensor_;
+	private ICarSensor outsideSensor_; 
+	private IExitUI ui_;
 	
-	private ICarpark carpark;
-	private IAdhocTicket  adhocTicket = null;
-	private long exitTime;
-	private String seasonTicketId = null;
+	private ICarpark carpark_;
+	private IAdhocTicket  adhocTicket_ = null;
+	private long exitTime_;
+	private String seasonTicketId_ = null;
 	
 	
 
@@ -27,21 +27,33 @@ public class ExitController
 			ICarSensor is,
 			ICarSensor os, 
 			IExitUI ui) {
-		this.carpark = carpark;
-        this.exitGate = exitGate;
-        this.insideSensor = is;
-       	this.outsideSensor = os;
-        this.ui = ui;
+
+		this.carpark_ = carpark;
+        this.exitGate_ = exitGate;
+        this.insideSensor_ = is;
+       	this.outsideSensor_ = os;
+        this.ui_ = ui;
                 
-        ui.registerController(this);
-        this.outsideSensor.registerResponder(this);
+        ui_.registerController(this);
+        outsideSensor_.registerResponder(this);
 	}
 
 
 
 	@Override
 	public void ticketInserted(String ticketStr) {
-		// TODO Auto-generated method stub
+		if(insideSensor.carIsDetected()) {
+			if(ticketStr.startsWith("A")) {
+                    
+            } else {
+                if(carpark.isSeasonTicketInUse(ticketStr)) {
+                    ui.display("Take Ticket");
+                } else {
+                    ui.display("Invalid Ticket");
+                }
+            }
+                
+        }
 		
 	}
 
