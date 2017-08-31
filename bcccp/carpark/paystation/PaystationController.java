@@ -53,7 +53,7 @@ public class PaystationController
 
 	@Override
 	public void ticketTaken() {
-		// TODO Auto-generated method stub
+		ui.display("");
 		
 	}
 
