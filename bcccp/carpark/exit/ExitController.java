@@ -70,7 +70,8 @@ public class ExitController
 
 	@Override
 	public void ticketTaken() {
-		// TODO Auto-generated method stub
+		exitGate_.raise();
+		
 		
 	}
 
@@ -78,7 +79,10 @@ public class ExitController
 
 	@Override
 	public void carEventDetected(String detectorId, boolean detected) {
-		// TODO Auto-generated method stub
+		if(detectorId.equalsIgnoreCase("Exit Outside Sensor")  && !detected) { 
+            exitGate.lower();
+                
+        }
 		
 	}
 
