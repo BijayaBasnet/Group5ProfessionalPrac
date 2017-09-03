@@ -16,8 +16,10 @@ public class PaystationController
 	
 
 	public PaystationController(ICarpark carpark, IPaystationUI ui) {
+
         this.carpark_ = carpark;
         this.ui_ = ui;
+BijayaBranch
         
         ui.registerController(this);
 	}
