@@ -44,6 +44,15 @@ public class ExitController
 	public void ticketInserted(String ticketStr) {
 		if(insideSensor_.carIsDetected()) {
 			if(ticketStr_.startsWith("A")) {
+
+				adhocTicket_ = carpark_.getAdhocTicket(ticketStr);
+                    if(adhocTicket_ != null) {
+                        if(adhocTicket_.getPaidDateTime() != 0) {
+                            ui_.display("Take Ticket");
+                        }
+                    } else {
+                        ui_.display("Ticket Invalid");
+                }
                     
             } else {
                 if(carpark_.isSeasonTicketInUse(ticketStr)) {
@@ -61,7 +70,8 @@ public class ExitController
 
 	@Override
 	public void ticketTaken() {
-		// TODO Auto-generated method stub
+		exitGate_.raise();
+		
 		
 	}
 
@@ -69,7 +79,10 @@ public class ExitController
 
 	@Override
 	public void carEventDetected(String detectorId, boolean detected) {
-		// TODO Auto-generated method stub
+		if(detectorId.equalsIgnoreCase("Exit Outside Sensor")  && !detected) { 
+            exitGate.lower();
+                
+        }
 		
 	}
 

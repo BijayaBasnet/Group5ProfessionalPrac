@@ -29,7 +29,10 @@ IEntryController {
                            ICarSensor os,
                            ICarSensor is,
                            IEntryUI ui) {
-        //TODO Implement constructor
+        this.ui = ui;
+        this.entryGate = entryGate;
+        this.insideSensor = is;
+        this.outsideSensor = os;
     }
     
     
@@ -54,12 +57,24 @@ IEntryController {
     public void ticketTaken() {
         // TODO Auto-generated method stub
         
+
+        this.adhocTicket = carpark.issueAdhocTicket();
+        entryTime = adhocTicket.getEntryDateTime();
     }
     
     
     
     @Override
-    public void notifyCarparkEvent() {
+    public void buttonPushed() {
+        ui.printTicket(carpark.getName(), adhocTicket.getTicketNo(), entryTime, adhocTicket.getBarcode());
+        ui.display("Ticket Issued!");
+        
+    }
+    
+    
+    
+    @Override
+    public void ticketInserted(String barcode) {
         // TODO Auto-generated method stub
         
     }
@@ -67,8 +82,24 @@ IEntryController {
     
     
     @Override
+    public void ticketTaken() {
+        ui.display("");
+        carpark.recordAdhocTicketEntry();
+        entryGate.raise();
+    }
+    
+    
+    
+    @Override
+    public void notifyCarparkEvent() {
+      entryGate.lower();
+    }
+    
+    
+    
+    @Override
     public void carEventDetected(String detectorId, boolean detected) {
-        // TODO Auto-generated method stub
+       ui.display("");
         
     }
     

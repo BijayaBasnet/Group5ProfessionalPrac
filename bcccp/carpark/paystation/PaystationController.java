@@ -2,27 +2,40 @@ package bcccp.carpark.paystation;
 
 import bcccp.carpark.ICarpark;
 import bcccp.tickets.adhoc.IAdhocTicket;
+import java.util.Date;
 
 public class PaystationController 
 		implements IPaystationController {
 	
-	private IPaystationUI ui;	
-	private ICarpark carpark;
+	private IPaystationUI ui_;
+	private ICarpark carpark_;
 
-	private IAdhocTicket  adhocTicket = null;
-	private float charge;
+	private IAdhocTicket  adhocTicket_ = null;
+	private float charge_;
 	
 	
 
 	public PaystationController(ICarpark carpark, IPaystationUI ui) {
-		//TODO Implement constructor
+
+        this.carpark_ = carpark;
+        this.ui_ = ui;
+BijayaBranch
+        
+        ui.registerController(this);
 	}
 
 
 
 	@Override
 	public void ticketInserted(String barcode) {
-		// TODO Auto-generated method stub
+		      adhocTicket= carpark.getAdhocTicket(barcode);
+        if( adhocTicket != null) {
+            if(barcode.equalsIgnoreCase(adhocTicket.getBarcode())) {
+                ui.display("Pay " + carpark.calculateAddHocTicketCharge(adhocTicket.getEntryDateTime()));
+            }
+        } else {
+            ui.display("Ticket is Invalid!");
+        }
 		
 	}
 
@@ -30,7 +43,11 @@ public class PaystationController
 
 	@Override
 	public void ticketPaid() {
-		// TODO Auto-generated method stub
+        adhocTicket.pay(new Date().getTime(), charge);
+        ui.printTicket(adhocTicket.getCarparkId(), adhocTicket.getTicketNo(),
+                       adhocTicket.getEntryDateTime(), adhocTicket.getPaidDateTime() ,
+                       adhocTicket.getCharge(), adhocTicket.getBarcode()
+                       );
 		
 	}
 
@@ -38,7 +55,7 @@ public class PaystationController
 
 	@Override
 	public void ticketTaken() {
-		// TODO Auto-generated method stub
+		ui.display("");
 		
 	}
 
