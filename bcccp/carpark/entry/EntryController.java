@@ -33,13 +33,31 @@ IEntryController {
         this.entryGate = entryGate;
         this.insideSensor = is;
         this.outsideSensor = os;
+    }
+    
+    
+    
+    @Override
+    public void buttonPushed() {
+        // TODO Auto-generated method stub
         
-        this.outsideSensor.registerResponder(this);
-        this.insideSensor.registerResponder(this);
+    }
+    
+    
+    
+    @Override
+    public void ticketInserted(String barcode) {
+        // TODO Auto-generated method stub
         
-        ui.registerController(this);
-        this.carpark = carpark;
+    }
+    
+    
+    
+    @Override
+    public void ticketTaken() {
+        // TODO Auto-generated method stub
         
+
         this.adhocTicket = carpark.issueAdhocTicket();
         entryTime = adhocTicket.getEntryDateTime();
     }
@@ -68,7 +86,6 @@ IEntryController {
         ui.display("");
         carpark.recordAdhocTicketEntry();
         entryGate.raise();
-        
     }
     
     
@@ -76,7 +93,6 @@ IEntryController {
     @Override
     public void notifyCarparkEvent() {
       entryGate.lower();
-        
     }
     
     
