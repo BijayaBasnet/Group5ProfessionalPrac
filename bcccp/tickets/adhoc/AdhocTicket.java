@@ -1,5 +1,5 @@
 package bcccp.tickets.adhoc;
-
+//importing Date package
 import java.util.Date;
 
 public class AdhocTicket implements IAdhocTicket {
@@ -61,6 +61,7 @@ public class AdhocTicket implements IAdhocTicket {
 	@Override
 	public void pay(long dateTime, float charge) {
 		// TODO Auto-generated method stub
+	return 0;
 		
 	}
 
