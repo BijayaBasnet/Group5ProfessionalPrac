@@ -1,5 +1,5 @@
 package bcccp.tickets.season;
-//Importing List Package
+
 import java.util.List;
 
 public interface ISeasonTicket {
