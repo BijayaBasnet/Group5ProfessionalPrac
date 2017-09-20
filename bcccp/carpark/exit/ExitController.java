@@ -80,7 +80,7 @@ public class ExitController
 	@Override
 	public void carEventDetected(String detectorId, boolean detected) {
 		if(detectorId.equalsIgnoreCase("Exit Outside Sensor")  && !detected) { 
-            exitGate.lower();
+            exitGate_.lower();
                 
         }
 		
