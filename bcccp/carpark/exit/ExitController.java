@@ -43,7 +43,7 @@ public class ExitController
 	@Override
 	public void ticketInserted(String ticketStr) {
 		if(insideSensor_.carIsDetected()) {
-			if(ticketStr_.startsWith("A")) {
+			if(ticketStr.startsWith("A")) {
 
 				adhocTicket_ = carpark_.getAdhocTicket(ticketStr);
                     if(adhocTicket_ != null) {
@@ -80,7 +80,7 @@ public class ExitController
 	@Override
 	public void carEventDetected(String detectorId, boolean detected) {
 		if(detectorId.equalsIgnoreCase("Exit Outside Sensor")  && !detected) { 
-            exitGate.lower();
+            exitGate_.lower();
                 
         }
 		
