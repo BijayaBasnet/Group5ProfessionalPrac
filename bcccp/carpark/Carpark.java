@@ -21,14 +21,22 @@ public class Carpark implements ICarpark {
 	public Carpark(String name, int capacity, 
 			IAdhocTicketDAO adhocTicketDAO, 
 			ISeasonTicketDAO seasonTicketDAO) {
-		//TODO Implement constructor
+        this.carparkId = name;
+        this.adhocTicketDAO = adhocTicketDAO;
+        this.seasonTicketDAO = seasonTicketDAO;
+        
+        this.capacity = capacity;
+        
+        this.observers = new ArrayList<>();
 	}
 
 
 
 	@Override
 	public void register(ICarparkObserver observer) {
-		// TODO Auto-generated method stub
+		if(!observers.contains(observer)) {				
+                    observers.add(observer);		
+                }
 		
 	}
 
@@ -36,7 +44,9 @@ public class Carpark implements ICarpark {
 
 	@Override
 	public void deregister(ICarparkObserver observer) {
-		// TODO Auto-generated method stub
+		if(observers.contains(observer)) {				
+                    observers.remove(observer);		
+                }
 		
 	}
 
@@ -44,15 +54,16 @@ public class Carpark implements ICarpark {
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return carparkId;
 	}
 
 
 
 	@Override
 	public boolean isFull() {
-		// TODO Auto-generated method stub
+		if(this.capacity == this.numberOfCarsParked) {				
+                return true;		
+            }
 		return false;
 	}
 
@@ -60,15 +71,17 @@ public class Carpark implements ICarpark {
 
 	@Override
 	public IAdhocTicket issueAdhocTicket() {
-		// TODO Auto-generated method stub
-		return null;
+		return adhocTicketDAO.createTicket(carparkId)
+	;
 	}
 
 
 
 	@Override
 	public void recordAdhocTicketEntry() {
-		// TODO Auto-generated method stub
+		 for (ICarparkObserver observer : observers ) {				
+                observer.notifyCarparkEvent();				
+            }
 		
 	}
 
@@ -76,23 +89,27 @@ public class Carpark implements ICarpark {
 
 	@Override
 	public IAdhocTicket getAdhocTicket(String barcode) {
-		// TODO Auto-generated method stub
-		return null;
+               if(adhocTicketDAO.findTicketByBarcode(barcode)!= null) {				
+                return adhocTicketDAO.findTicketByBarcode(barcode);
+            }		
+            		
+            return null;				
+            
+		
 	}
 
 
 
 	@Override
 	public float calculateAddHocTicketCharge(long entryDateTime) {
-		// TODO Auto-generated method stub
-		return 0;
+		 return 4;
 	}
 
 
 
 	@Override
 	public void recordAdhocTicketExit() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -100,7 +117,7 @@ public class Carpark implements ICarpark {
 
 	@Override
 	public void registerSeasonTicket(ISeasonTicket seasonTicket) {
-		// TODO Auto-generated method stub
+		   seasonTicketDAO.registerTicket(seasonTicket);
 		
 	}
 
@@ -108,7 +125,7 @@ public class Carpark implements ICarpark {
 
 	@Override
 	public void deregisterSeasonTicket(ISeasonTicket seasonTicket) {
-		// TODO Auto-generated method stub
+		seasonTicketDAO.deregisterTicket(seasonTicket);
 		
 	}
 
@@ -116,23 +133,29 @@ public class Carpark implements ICarpark {
 
 	@Override
 	public boolean isSeasonTicketValid(String ticketId) {
-		// TODO Auto-generated method stub
-		return false;
+		seasonTicketDAO.findTicketById(ticketId);				
+            if(seasonTicketDAO.findTicketById(ticketId)!= null) {		
+                return true;		
+            }		
+            return false;
 	}
 
 
 
 	@Override
 	public boolean isSeasonTicketInUse(String ticketId) {
-		// TODO Auto-generated method stub
-		return false;
+		 if(seasonTicketDAO.findTicketById(ticketId).inUse()) {				
+                return true;				
+            }		
+            return false;
+		
 	}
 
 
 
 	@Override
 	public void recordSeasonTicketEntry(String ticketId) {
-		// TODO Auto-generated method stub
+		seasonTicketDAO.recordTicketEntry(ticketId);
 		
 	}
 
@@ -140,7 +163,7 @@ public class Carpark implements ICarpark {
 
 	@Override
 	public void recordSeasonTicketExit(String ticketId) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
