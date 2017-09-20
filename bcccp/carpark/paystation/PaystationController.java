@@ -7,18 +7,18 @@ import java.util.Date;
 public class PaystationController 
 		implements IPaystationController {
 	
-	private IPaystationUI ui_;
-	private ICarpark carpark_;
+	private IPaystationUI ui;
+	private ICarpark carpark;
 
-	private IAdhocTicket  adhocTicket_ = null;
-	private float charge_;
+	private IAdhocTicket  adhocTicket = null;
+	private float charge;
 	
 	
 
 	public PaystationController(ICarpark carpark, IPaystationUI ui) {
 
-        this.carpark_ = carpark;
-        this.ui_ = ui;
+        this.carpark = carpark;
+        this.ui = ui;
 
         ui.registerController(this);
 	}
