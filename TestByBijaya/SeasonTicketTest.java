@@ -39,6 +39,8 @@ public class SeasonTicketTest {
 		assertTrue(seasonTicket instanceof ISeasonTicket);
 		assertEquals(seasonTicket.getCarparkId(), carparkId);
 		assertEquals(seasonTicket.getId(), ticketId);
+		assertEquals(seasonTicket.getStartValidPeriod(), startValidPeriod);
+
 
     	}
 
