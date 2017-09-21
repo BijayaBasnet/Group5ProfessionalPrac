@@ -24,6 +24,7 @@ public class SeasonTicketTest {
 	    	carparkId = "Bathurst Chase";
 		startValidPeriod = new Date().getTime();
 	    endValidPeriod = new Date().getTime() + 300000; 
+		 seasonTicket = new SeasonTicket(ticketId, carparkId, startValidPeriod, endValidPeriod);
 	    
 	  
     }
