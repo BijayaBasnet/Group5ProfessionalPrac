@@ -38,6 +38,8 @@ public class SeasonTicketTest {
 	public void testInit() {
 		assertTrue(seasonTicket instanceof ISeasonTicket);
 		assertEquals(seasonTicket.getCarparkId(), carparkId);
+		assertEquals(seasonTicket.getId(), ticketId);
+
     	}
 
 }
