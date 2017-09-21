@@ -13,6 +13,11 @@ import bcccp.tickets.season.ISeasonTicket;
 import bcccp.tickets.season.SeasonTicket;
 
 public class SeasonTicketTest {
+	ISeasonTicket seasonTicket;
+	String ticketId;
+    	String carparkId;
+    	long startValidPeriod;
+    	long endValidPeriod; 
   @Before
 	public void setUp() throws Exception {
     }
