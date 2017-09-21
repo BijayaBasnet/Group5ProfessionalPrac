@@ -30,6 +30,7 @@ public class SeasonTicketTest {
     }
   @After
 	public void tearDown() throws Exception {
+		seasonTicket = null;
 		
 	}
   
