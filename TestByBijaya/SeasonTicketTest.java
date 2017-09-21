@@ -36,6 +36,7 @@ public class SeasonTicketTest {
   
 	@Test
 	public void testInit() {
+		assertTrue(seasonTicket instanceof ISeasonTicket);
     	}
 
 }
