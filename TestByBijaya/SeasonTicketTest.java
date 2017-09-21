@@ -22,6 +22,10 @@ public class SeasonTicketTest {
 	public void setUp() throws Exception {
 		ticketId = "S1111";
 	    	carparkId = "Bathurst Chase";
+		startValidPeriod = new Date().getTime();
+	    endValidPeriod = new Date().getTime() + 300000; 
+	    
+	  
     }
   @After
 	public void tearDown() throws Exception {
