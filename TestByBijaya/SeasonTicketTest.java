@@ -20,6 +20,8 @@ public class SeasonTicketTest {
     	long endValidPeriod; 
   @Before
 	public void setUp() throws Exception {
+		ticketId = "S1111";
+	    	carparkId = "Bathurst Chase";
     }
   @After
 	public void tearDown() throws Exception {
