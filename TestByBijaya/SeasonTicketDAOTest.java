@@ -22,11 +22,13 @@ import bcccp.tickets.season.UsageRecordFactory;
 
 public class SeasonTicketDAOTest {
 	
-	
+	IUsageRecordFactory usageFactory;
+	ISeasonTicketDAO seasonTicketDAO;
+	ISeasonTicket seasonTicket;
+	long currentTime;
 
 	@Before
 	public void setUp() throws Exception {
-		
 		
 		
 		
