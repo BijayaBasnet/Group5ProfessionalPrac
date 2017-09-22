@@ -33,6 +33,8 @@ public class SeasonTicketDAOTest {
 	usageFactory = Mockito.mock(UsageRecordFactory.class);
 	Mockito.when(usageFactory.make(anyString(), anyLong())).thenReturn(new UsageRecord("1", currentTime));
 	seasonTicketDAO = new SeasonTicketDAO(usageFactory);
+	seasonTicket = new SeasonTicket("1","S1111", new Date().getTime(), new Date().getTime()+ 300000 );
+	seasonTicketDAO.registerTicket(seasonTicket);
 
 		
 	}
