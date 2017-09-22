@@ -29,7 +29,8 @@ public class SeasonTicketDAOTest {
 
 	@Before
 	public void setUp() throws Exception {
-	currentTime = new Date().getTime();	
+	currentTime = new Date().getTime();
+	usageFactory = Mockito.mock(UsageRecordFactory.class);
 		
 		
 	}
