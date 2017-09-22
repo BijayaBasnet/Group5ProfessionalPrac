@@ -41,6 +41,8 @@ public class SeasonTicketDAOTest {
 
 	@After
 	public void tearDown() throws Exception {
+		usageFactory = null;
+		seasonTicketDAO = null;
 		}
 
 	@Test
