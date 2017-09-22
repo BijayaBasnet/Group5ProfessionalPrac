@@ -47,6 +47,8 @@ public class SeasonTicketDAOTest {
 
 	@Test
 	public void testRegisterSeasonTicket() {
+	assertEquals(seasonTicketDAO.getNumberOfTickets(), 1);
+
 		
 	}
 	
