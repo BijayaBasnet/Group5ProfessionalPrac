@@ -29,5 +29,12 @@ public class AdhocFactoryTicketTest {
 		adhocTicket = null;
 	}
 
+	@Test
+	public void testInit() {
+		assertTrue(adhocTicket instanceof IAdhocTicket);
+		assertEquals(adhocTicket.getCarparkId(), carparkID);
+		assertEquals(adhocTicket.getTicketNo(), ticketNo);
+		assertEquals(adhocTicket.getBarcode(), barcode);
+	}
 
 }
