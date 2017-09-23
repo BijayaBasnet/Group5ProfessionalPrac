@@ -24,6 +24,10 @@ public class AdhocFactoryTicketTest {
 		adhocTicket = new AdhocTicketFactory().make(carparkID, ticketNo);
 	}
 
+	@After
+	public void tearDown() throws Exception {
+		adhocTicket = null;
+	}
 
 
 }
