@@ -65,8 +65,7 @@ public class SeasonTicketDAOTest {
 	@Test
 	public void testRecordTicketEntry() {
 	seasonTicketDAO.recordTicketEntry("1");
-
-		
+	IUsageRecord record = seasonTicket.getCurrentUsageRecord();	
 	}
 
 }
