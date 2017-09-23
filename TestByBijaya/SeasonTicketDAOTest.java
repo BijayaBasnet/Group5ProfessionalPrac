@@ -59,7 +59,7 @@ public class SeasonTicketDAOTest {
 	
 	@Test
 	public void testFindSeasonTicketByID() {
-		
+	assertEquals(seasonTicketDAO.findTicketById("1"), seasonTicket );
 	}
 	
 	@Test
