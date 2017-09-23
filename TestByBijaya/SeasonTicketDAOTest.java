@@ -47,14 +47,14 @@ public class SeasonTicketDAOTest {
 
 	@Test
 	public void testRegisterSeasonTicket() {
-	assertEquals(seasonTicketDAO.getNumberOfTickets(), 1);
-
-		
+	assertEquals(seasonTicketDAO.getNumberOfTickets(), 1);	
 	}
 	
 	@Test
 	public void testDeregisterSeasonTicket() {
-		s
+		seasonTicketDAO.deregisterTicket(seasonTicket);
+		assertEquals(seasonTicketDAO.getNumberOfTickets(), 0);
+
 	}
 	
 	@Test
