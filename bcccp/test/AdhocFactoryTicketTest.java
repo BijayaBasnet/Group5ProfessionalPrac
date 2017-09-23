@@ -1,0 +1,29 @@
+package testcases;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import bcccp.tickets.adhoc.AdhocTicketFactory;
+import bcccp.tickets.adhoc.IAdhocTicket;
+
+public class AdhocFactoryTicketTest {
+
+	String carparkID;
+	int ticketNo;
+	String barcode;
+	IAdhocTicket adhocTicket;
+
+	@Before
+	public void setUp() throws Exception {
+		carparkID = "Bathurst Chase";
+		ticketNo = 1;
+		barcode = "A" + ticketNo;
+		adhocTicket = new AdhocTicketFactory().make(carparkID, ticketNo);
+	}
+
+
+
+}
