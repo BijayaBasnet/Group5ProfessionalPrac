@@ -65,7 +65,9 @@ public class SeasonTicketDAOTest {
 	@Test
 	public void testRecordTicketEntry() {
 	seasonTicketDAO.recordTicketEntry("1");
-	IUsageRecord record = seasonTicket.getCurrentUsageRecord();	
+	IUsageRecord record = seasonTicket.getCurrentUsageRecord();
+	assertEquals(record.getSeasonTicketId(), seasonTicket.getId());
+
 	}
 
 }
