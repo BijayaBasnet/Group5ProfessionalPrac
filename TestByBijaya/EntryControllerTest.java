@@ -51,7 +51,7 @@ public class EntryControllerTest {
 
 	@After
 	public void tearDown() throws Exception {
-		
+				entryController = null;
 	}
 
 	@Test
