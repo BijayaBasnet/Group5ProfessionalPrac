@@ -41,4 +41,10 @@ public class AdhocTicketDAOTest {
 		
 	}
 
-	
+	@After
+	public void tearDown() throws Exception {
+		adhocTicketDAO = null;
+		adhocTicket = null;
+	}
+
+	}
