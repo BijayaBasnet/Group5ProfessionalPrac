@@ -24,6 +24,14 @@ import bcccp.tickets.adhoc.IAdhocTicket;
 
 public class EntryControllerTest {
 	
+	IGate entryGate;
+	ICarSensor outsideSensor; 
+	ICarSensor insideSensor;
+	IEntryUI ui;
+	
+	Carpark carpark;
+    IAdhocTicket adhocTicket;
+    IEntryController entryController;
 
 	@Before
 	public void setUp() throws Exception {
