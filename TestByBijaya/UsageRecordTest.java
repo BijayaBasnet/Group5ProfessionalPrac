@@ -25,6 +25,7 @@ public class UsageRecordTest {
 
 	@After
 	public void tearDown() throws Exception {
+				usageRecord = null;
 			}
 
 	@Test
