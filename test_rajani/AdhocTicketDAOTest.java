@@ -47,4 +47,10 @@ public class AdhocTicketDAOTest {
 		adhocTicket = null;
 	}
 
+	@Test
+	public void testInit() {
+	
+		assertTrue(adhocTicket instanceof IAdhocTicket);
+		assertEquals(adhocTicketDAO.createTicket("Bathurst").getCarparkId(), "Bathurst");
+		
 	}
