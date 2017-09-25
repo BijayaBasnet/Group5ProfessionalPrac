@@ -35,6 +35,7 @@ public class EntryControllerTest {
 
 	@Before
 	public void setUp() throws Exception {
+		entryGate  = Mockito.mock(Gate.class);
 	}
 
 	@After
