@@ -56,6 +56,7 @@ public class EntryControllerTest {
 
 	@Test
 	public void testCarDetected() {
+				assertTrue(outsideSensor.carIsDetected());
 		
 	}
 	
