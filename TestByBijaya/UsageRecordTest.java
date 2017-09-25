@@ -18,6 +18,7 @@ public class UsageRecordTest {
 	
 	@Before
 	public void setUp() throws Exception {	
+		ticketId = "1";
 	}
 
 	@After
