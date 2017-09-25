@@ -59,3 +59,11 @@ public class AdhocTicketDAOTest {
 		
 		assertEquals(adhocTicketDAO.findTicketByBarcode("A1"), adhocTicket);
 	}
+	@Test
+	public void testGetCurrentTickets() {
+		assertEquals(adhocTicketDAO.getCurrentTickets().get(0), adhocTicket);
+		assertEquals(adhocTicketDAO.getCurrentTickets().size(), 1);
+		
+	}
+
+}
