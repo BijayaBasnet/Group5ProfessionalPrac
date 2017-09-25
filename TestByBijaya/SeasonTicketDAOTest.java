@@ -34,9 +34,7 @@ public class SeasonTicketDAOTest {
 	Mockito.when(usageFactory.make(anyString(), anyLong())).thenReturn(new UsageRecord("1", currentTime));
 	seasonTicketDAO = new SeasonTicketDAO(usageFactory);
 	seasonTicket = new SeasonTicket("1","S1111", new Date().getTime(), new Date().getTime()+ 300000 );
-	seasonTicketDAO.registerTicket(seasonTicket);
-
-		
+	seasonTicketDAO.registerTicket(seasonTicket);	
 	}
 
 	@After
@@ -47,24 +45,27 @@ public class SeasonTicketDAOTest {
 
 	@Test
 	public void testRegisterSeasonTicket() {
-	assertEquals(seasonTicketDAO.getNumberOfTickets(), 1);
-
-		
+	assertEquals(seasonTicketDAO.getNumberOfTickets(), 1);	
 	}
 	
 	@Test
 	public void testDeregisterSeasonTicket() {
-		s
+		seasonTicketDAO.deregisterTicket(seasonTicket);
+		assertEquals(seasonTicketDAO.getNumberOfTickets(), 0);
+
 	}
 	
 	@Test
 	public void testFindSeasonTicketByID() {
-		
+	assertEquals(seasonTicketDAO.findTicketById("1"), seasonTicket );
 	}
 	
 	@Test
 	public void testRecordTicketEntry() {
-		
+	seasonTicketDAO.recordTicketEntry("1");
+	IUsageRecord record = seasonTicket.getCurrentUsageRecord();
+	assertEquals(record.getSeasonTicketId(), seasonTicket.getId());
+	assertEquals(record.getStartTime(), currentTime);
 	}
 
 }
