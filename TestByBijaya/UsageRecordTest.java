@@ -30,6 +30,8 @@ public class UsageRecordTest {
 
 	@Test
 	public void test() {
+	assertEquals(usageRecord.getSeasonTicketId(), ticketId);
+
 	}
 
 }
