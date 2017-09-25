@@ -36,6 +36,8 @@ public class EntryControllerTest {
 	@Before
 	public void setUp() throws Exception {
 		entryGate  = Mockito.mock(Gate.class);
+		insideSensor = Mockito.mock(CarSensor.class);
+	
 	}
 
 	@After
