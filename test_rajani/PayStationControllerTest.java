@@ -24,6 +24,19 @@ public class PayStationControllerTest {
 	IPaystationUI ui;	
 	ICarpark carpark;
 
-	
+	IAdhocTicket  adhocTicket;
+	float charge;
 
+	@Before
+	public void setUp() throws Exception {
+		carpark = Mockito.mock(Carpark.class);
+		ui = Mockito.mock(PaystationUI.class);
+		adhocTicket = Mockito.mock(AdhocTicket.class);
+		
+		
+		Mockito.when(carpark.getAdhocTicket("Bathurst")).thenReturn(adhocTicket);
+		Mockito.when(carpark.calculateAddHocTicketCharge(anyLong())).thenReturn(4.0f);
+	}
+
+	
 }
