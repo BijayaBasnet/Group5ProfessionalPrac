@@ -11,6 +11,10 @@ import org.junit.Test;
 import bcccp.tickets.season.UsageRecord;
 
 public class UsageRecordTest {
+	UsageRecord usageRecord;
+	String ticketId;
+	long startDateTime;
+
 	
 	@Before
 	public void setUp() throws Exception {	
