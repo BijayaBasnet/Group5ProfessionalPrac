@@ -38,5 +38,9 @@ public class PayStationControllerTest {
 		Mockito.when(carpark.calculateAddHocTicketCharge(anyLong())).thenReturn(4.0f);
 	}
 
-	
+	@After
+	public void tearDown() throws Exception {
+	}
+
+
 }
