@@ -38,6 +38,9 @@ public class EntryControllerTest {
 		entryGate  = Mockito.mock(Gate.class);
 		insideSensor = Mockito.mock(CarSensor.class);
 		outsideSensor = Mockito.mock(CarSensor.class);
+		ui = Mockito.mock(EntryUI.class);
+		carpark = Mockito.mock(Carpark.class);
+		adhocTicket = Mockito.mock(AdhocTicket.class);
 		
 	
 	}
