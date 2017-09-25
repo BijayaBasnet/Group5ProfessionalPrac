@@ -61,7 +61,7 @@ public class EntryControllerTest {
 	}
 	
 	public void testGateRaise() {
-		
+				assertFalse(entryGate.isRaised());
 	}
 	
 
