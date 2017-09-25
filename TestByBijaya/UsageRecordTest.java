@@ -20,6 +20,7 @@ public class UsageRecordTest {
 	public void setUp() throws Exception {	
 		ticketId = "1";
 		startDateTime = new Date().getTime();
+		usageRecord = new UsageRecord(ticketId, startDateTime);
 	}
 
 	@After
