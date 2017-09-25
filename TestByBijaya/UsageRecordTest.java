@@ -19,6 +19,7 @@ public class UsageRecordTest {
 	@Before
 	public void setUp() throws Exception {	
 		ticketId = "1";
+		startDateTime = new Date().getTime();
 	}
 
 	@After
