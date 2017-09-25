@@ -44,6 +44,9 @@ public class EntryControllerTest {
 		Mockito.when(carpark.issueAdhocTicket()).thenReturn(adhocTicket);
 		Mockito.when(adhocTicket.getEntryDateTime()).thenReturn(new Date().getTime());
 		entryController = new EntryController(carpark, entryGate, outsideSensor, insideSensor, ui);
+		
+		Mockito.when(outsideSensor.carIsDetected()).thenReturn(true);
+		Mockito.when(entryGate.isRaised()).thenReturn(false);
 	}
 
 	@After
