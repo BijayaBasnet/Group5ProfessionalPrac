@@ -41,8 +41,8 @@ public class EntryControllerTest {
 		ui = Mockito.mock(EntryUI.class);
 		carpark = Mockito.mock(Carpark.class);
 		adhocTicket = Mockito.mock(AdhocTicket.class);
-		
-	
+		Mockito.when(carpark.issueAdhocTicket()).thenReturn(adhocTicket);
+		Mockito.when(adhocTicket.getEntryDateTime()).thenReturn(new Date().getTime());
 	}
 
 	@After
