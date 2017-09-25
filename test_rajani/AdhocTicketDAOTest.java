@@ -54,3 +54,8 @@ public class AdhocTicketDAOTest {
 		assertEquals(adhocTicketDAO.createTicket("Bathurst").getCarparkId(), "Bathurst");
 		
 	}
+	@Test
+	public void testFindAdhocTicket() {
+		
+		assertEquals(adhocTicketDAO.findTicketByBarcode("A1"), adhocTicket);
+	}
