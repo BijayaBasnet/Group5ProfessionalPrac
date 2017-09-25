@@ -44,7 +44,7 @@ public class CarparkTest {
 		long currentDateTime = new Date().getTime() + 300000;
 		
 		Mockito.when(adhocTicketDAO.createTicket("Bathurst")).thenReturn(adhocTicket);
-		Mockito.when(seasonTicketDAO.findTicketById("1")).thenReturn(seasonTicket);
+		Mockito.when(seasonTicketDAO.findTicketById("S1111")).thenReturn(seasonTicket);
 		Mockito.when(seasonTicket.getEndValidPeriod()).thenReturn(currentDateTime);
 		carparkId = "Bathurst";
 		numberOfCapacity = 1;
@@ -89,8 +89,9 @@ public class CarparkTest {
 	
 	@Test
 	public void testIsSeasonTicketValid() {
-		assertTrue(carpark.isSeasonTicketValid("1"));
+		assertTrue(carpark.isSeasonTicketValid("S1111"));
 	}
 
 		
 	}
+
