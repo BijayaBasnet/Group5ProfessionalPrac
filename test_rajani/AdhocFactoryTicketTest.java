@@ -26,7 +26,7 @@ public class AdhocFactoryTicketTest {
 
 	@After
 	public void tearDown() throws Exception {
-		adhocTicket = null;
+		adhocTicket = 0;
 	}
 
 	@Test
