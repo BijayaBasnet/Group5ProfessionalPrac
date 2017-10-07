@@ -1,5 +1,6 @@
 package bcccp.tickets.adhoc;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class AdhocTicket implements IAdhocTicket {
@@ -15,77 +16,88 @@ public class AdhocTicket implements IAdhocTicket {
 	
 	
 	public AdhocTicket(String carparkId, int ticketNo, String barcode) {
-		//TDO Implement constructor
+		this.carparkId = carparkId;
+                this.ticketNo = ticketNo;
+                this.barcode = barcode;
+                
+               entryDateTime = new Date().getTime();
 	}
 
 
 	@Override
 	public int getTicketNo() {
-		// TODO Auto-generated method stub
-		return 0;
+            return this.ticketNo;
 	}
 
 
 	@Override
 	public String getBarcode() {
-		// TODO Auto-generated method stub
-		return null;
+            return this.barcode;
 	}
 
 
 	@Override
 	public String getCarparkId() {
-		// TODO Auto-generated method stub
-		return null;
+            return this.carparkId;
 	}
 
 
 	@Override
 	public void enter(long dateTime) {
-		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
 	public long getEntryDateTime() {
-		// TODO Auto-generated method stub
-		return 0;
+            return entryDateTime;
 	}
 
 
 	@Override
 	public boolean isCurrent() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 
 	@Override
 	public void pay(long dateTime, float charge) {
-		// TODO Auto-generated method stub
+            this.paidDateTime = dateTime;
+            this.charge = charge;
+            
 		
 	}
 
 
 	@Override
 	public long getPaidDateTime() {
-		// TODO Auto-generated method stub
-		return 0;
+            return this.paidDateTime;
 	}
 
 
 	@Override
 	public boolean isPaid() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 
 	@Override
 	public float getCharge() {
-		// TODO Auto-generated method stub
-		return 0;
+             Calendar cal = Calendar.getInstance();
+             cal.setTime(new Date());
+             int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+             switch(dayOfWeek) { 
+             case 1: 
+                return 4;
+             case 2: case 3: case 4: case 5: case 6:
+                return 8;
+             case 7:
+                 return 4;
+
+              
+             }
+             
+             return 0;
 	}
 
 
@@ -105,7 +117,7 @@ public class AdhocTicket implements IAdhocTicket {
 
 	@Override
 	public boolean hasExited() {
-		// TODO Auto-generated method stub
+                
 		return false;
 	}
 
